@@ -174,5 +174,15 @@
 
 </div>
 
+<script>
+(function(){
+  // Enables :active CSS states on iOS Safari, which otherwise suppresses
+  // the tap highlight unless a touch listener is present on the page.
+  // This makes the press/glow effect visible during the natural dwell
+  // time between touchstart and the link opening, with no navigation delay.
+  document.addEventListener('touchstart', function(){}, {passive:true});
+})();
+</script>
+
 </body>
 </html>
