@@ -21,8 +21,13 @@
 
 <style>
   *{box-sizing:border-box}
+  html,body{
+    -webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;
+    -webkit-touch-callout:none;
+  }
   body{margin:0;background:#0A192F;font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased}
   a{text-decoration:none}
+  img{-webkit-user-drag:none;-khtml-user-drag:none;-moz-user-drag:none;-o-user-drag:none;user-drag:none;pointer-events:none}
 
   html{scrollbar-width:auto;scrollbar-color:#C5A880 #0A192F}
   ::-webkit-scrollbar{width:18px;height:18px}
@@ -89,7 +94,7 @@
 
     <div style="width:172px;height:172px;border-radius:50%;padding:4px;background:linear-gradient(135deg,#EAD9B4,#C5A880 35%,#8f7550 60%,#C5A880 85%,#EAD9B4);box-shadow:0 10px 34px rgba(0,0,0,0.5),0 0 0 1px rgba(197,168,128,0.25)">
       <div style="width:100%;height:100%;border-radius:50%;background:#FFFFFF;border:2px solid #0A192F;display:flex;align-items:center;justify-content:center;overflow:hidden">
-        <img src="assets/logo-zacarella.png" alt="Zacarella Advogados Associados" style="width:78%;height:78%;object-fit:contain" />
+        <img src="assets/logo-zacarella.png" alt="Zacarella Advogados Associados" draggable="false" style="width:78%;height:78%;object-fit:contain" />
       </div>
     </div>
     <p style="margin:12px 0 0;font-size:11px;letter-spacing:2px;color:#C5A880;text-transform:uppercase;font-weight:600;text-align:center">Empresarial &amp; Proteção Patrimonial</p>
@@ -159,9 +164,9 @@
     </div>
 
     <div style="display:flex;align-items:center;justify-content:center;gap:14px;margin-top:6px;padding-top:16px;border-top:1px solid rgba(197,168,128,0.15)">
-      <img src="assets/selo-analise-2020.png" alt="Selo Análise Advocacia 2020 — Escritório Mais Admirado" style="height:46px;width:auto;border-radius:4px" />
-      <img src="assets/selo-ranking-regional-2021.png" alt="Selo Ranking Análise Advocacia Regional 2021" style="height:46px;width:auto;border-radius:4px" />
-      <img src="assets/selo-advocacia-500-2018.png" alt="Selo Análise Advocacia 500 — Advogada Mais Admirada 2018" style="height:46px;width:auto;border-radius:4px" />
+      <img src="assets/selo-analise-2020.png" alt="Selo Análise Advocacia 2020 — Escritório Mais Admirado" draggable="false" style="height:46px;width:auto;border-radius:4px" />
+      <img src="assets/selo-ranking-regional-2021.png" alt="Selo Ranking Análise Advocacia Regional 2021" draggable="false" style="height:46px;width:auto;border-radius:4px" />
+      <img src="assets/selo-advocacia-500-2018.png" alt="Selo Análise Advocacia 500 — Advogada Mais Admirada 2018" draggable="false" style="height:46px;width:auto;border-radius:4px" />
     </div>
 
     <p style="margin:6px 0 0;font-size:10.5px;color:#F4F6F9;letter-spacing:0.5px">© 2026 Zacarella Advogados. Todos os direitos reservados.</p>
@@ -176,6 +181,13 @@
   // This makes the press/glow effect visible during the natural dwell
   // time between touchstart and the link opening, with no navigation delay.
   document.addEventListener('touchstart', function(){}, {passive:true});
+
+  // Deters right-click, drag and copy/selection on content. Links and
+  // buttons stay fully clickable — only context menu, drag and text
+  // selection are blocked.
+  document.addEventListener('contextmenu', function(e){ e.preventDefault(); });
+  document.addEventListener('dragstart', function(e){ e.preventDefault(); });
+  document.addEventListener('selectstart', function(e){ e.preventDefault(); });
 })();
 </script>
 
